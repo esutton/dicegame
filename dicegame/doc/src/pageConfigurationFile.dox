@@ -1,0 +1,77 @@
+/*! \page pageConfigurationFile Game Configuration File
+
+Overview
+========
+The loaded dice game configuration file is a simple text file.
+
+The file format uses simple line value pairs.
+
+Example:
+\code
+propertyName=value
+\endcode
+
+Configuration File Comments
+===========================
+Single line comments must start with a '#' or ';' character.
+\code
+# This is a comment that starts with a '#' character
+
+; This is a comment that starts with a ';' character
+\endcode
+
+Configuration File Properties
+=============================
+
+\htmlonly
+
+<style type="text/css">
+.tftable {font-size:12px;color:#333333;width:100%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+.tftable th {font-size:12px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:left;}
+.tftable tr {background-color:#d4e3e5;}
+.tftable td {font-size:12px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+.tftable tr:hover {background-color:#ffffff;}
+</style>
+
+<table class="tftable" border="1">
+<tr><th>Property<br>Name</th><th>Value</th><th>Description</th></tr>
+<tr><td>NumRolls</td><td>Numeric string</td><td>Specified the number of dice rolls for the game</td></tr>
+<tr><td>Dice</td><td>"Die1" or "Die2"</td><td>Selects die to configure</td></tr>
+<tr><td>LoadedSide</td><td>Numeric string</td><td>Selects die side 1-6 to load. If 0 then dice is not loaded</td></tr>
+<tr><td>LoadAmount</td><td>Numeric string</td><td>Selects die loaded side load factor.<br>
+For an amount of 2, then the loaded side should appears 2 times as often as unloaded sides.</td></tr>
+</table>
+
+\endhtmlonly
+
+
+Configuration File Example:
+===========================
+In the example seen below, 100 rolls are played.
+
+For Die1, side 3 is loaded and will be twice as likely as the other sides to appear.
+For Die2, side 6 would be 10 times as likely.
+
+\code
+# This is a comment
+NumRolls=100
+
+#################
+# Die 2 - side 3 should appear 2 times as frequently as other sides
+#################
+Dice=Die1
+LoadedSide=3
+LoadAmount=2
+
+#################
+# Die 2 - side 6 should appear 10 times as frequently as other sides
+#################
+Dice=Die2
+LoadedSide=6
+LoadAmount=10
+\endcode
+
+
+
+
+*/

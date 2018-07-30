@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="1" hostname="localhost" name="Die" tests="7" time="0.586" timestamp="2013-12-14T16:39:26">
+<properties>
+</properties>
+<testcase classname="Die" name="InitialValueIsRandom" time="0.554">
+</testcase>
+<testcase classname="Die" name="RollDistributionIsReasonable" time="0.014">
+</testcase>
+<testcase classname="Die" name="ValuesRolledValid" time="0.013">
+</testcase>
+<testcase classname="Die" name="RollCountHistoryZeroForInvalidSides" time="0.002">
+</testcase>
+<testcase classname="Die" name="RollCountHistoryNotZeroForValidSides" time="0.003">
+<failure message="../dicegame/src/test/die_test.cpp:56: CHECK(0 != rollCountHistory) failed" type="AssertionFailedError">
+</failure>
+</testcase>
+<testcase classname="Die" name="DiceHasSixSides" time="0.000">
+</testcase>
+<testcase classname="Die" name="InitialValueAfterCreationIsValid" time="0.000">
+</testcase>
+<system-out></system-out>
+<system-err></system-err>
+</testsuite>

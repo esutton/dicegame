@@ -1,0 +1,11 @@
+/*! \page pageCodeCoverage Code Coverage Reports
+
+// Reirect to the LCOV report for top level - main
+
+\htmlonly
+<meta http-equiv="refresh" content="0; url=test/coverage/main/index.html" />
+\endhtmlonly
+
+file:///home/esutton/projects/dicegame/dicegame/doc/html/test/coverage/main/index.html
+
+*/

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="localhost" name="LoadedDie" tests="2" time="2.857" timestamp="2013-12-14T16:39:25">
+<properties>
+</properties>
+<testcase classname="LoadedDie" name="RollDistributionIsReasonable" time="0.218">
+</testcase>
+<testcase classname="LoadedDie" name="ReturnsValueProvidedAtConstruction" time="2.639">
+</testcase>
+<system-out></system-out>
+<system-err></system-err>
+</testsuite>

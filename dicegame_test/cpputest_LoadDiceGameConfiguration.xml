@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="localhost" name="LoadDiceGameConfiguration" tests="15" time="0.001" timestamp="2013-12-14T16:39:25">
+<properties>
+</properties>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidLoadedSideNegative" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidLoadedSide" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidMissingDiceSection" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidTooManyEqualSigns" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidLoadAmountNotNumeric" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidLoadedSideNotNumeric" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidDiceCountLessThan2" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidDiceCountGreaterThan2" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidDuplicatDie1" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidDiceCountZero" time="0.001">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidNumRollsNotNumeric" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="InvalidNumRolls" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="LoadDiceGameConfig" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="MissingConfigurationIsNotValid" time="0.000">
+</testcase>
+<testcase classname="LoadDiceGameConfiguration" name="NoConfigurationIsNotValid" time="0.000">
+</testcase>
+<system-out></system-out>
+<system-err></system-err>
+</testsuite>

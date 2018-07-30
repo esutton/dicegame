@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="localhost" name="LoadedDiceGame" tests="2" time="0.004" timestamp="2013-12-14T16:39:26">
+<properties>
+</properties>
+<testcase classname="LoadedDiceGame" name="ValidConfig" time="0.004">
+</testcase>
+<testcase classname="LoadedDiceGame" name="ConfigFileNotFound" time="0.000">
+</testcase>
+<system-out></system-out>
+<system-err></system-err>
+</testsuite>

@@ -1,0 +1,40 @@
+/*! \page pageTest Testing Overview
+
+<hr>
+Introduction
+============
+- Using <a href="http://cpputest.github.io">CppUTest</a> xUnit test framework
+- See \ref test 
+
+<hr>
+CppUTest
+========
+
+- CppUTest is a C/C++ based unit xUnit test framework for unit testing and for test-driving your code. 
+- It is written in C++ but is used in <b>both</b> C and C++ projects and frequently used in embedded systems but it works for any C/C++ project.
+- Does not require the newer TR1 / C++11 compilers 
+  -  This is good for portability to embedded systems
+- Can be integrated with Jenkins / Hudson using the <a href="https://wiki.jenkins-ci.org/display/JENKINS/xUnit+Plugin">xUnit Plugin</a> 
+- Memory Leak Detection
+  - CppUTest has memory leak detection support on a per-test level. 
+  - This means that it automatically checks whether the memory at the end of a test is the same as at the beginning of the test.
+- You can use Google Mock directly in CppUTest.
+- There is an <a href="https://github.com/cpputest/CppUTestEclipsePlugin">Eclipse CppUTestEclipsePlugin</a> to help decrease Java / JUnit tool envy ( TDD is too easy in Java ;-)
+- CppUTest is based on the following design principles
+  - Simple in design and simple in use.
+  - Portable to old and new platforms.
+
+<a href="http://cpputest.github.io">CppUTest</a>
+http://cpputest.github.io
+
+<hr>
+<h1><a href="test/coverage/test/index.html">Code Coverage Reports</a></h1>
+
+-# The dicegame_test Makefile compiles and links with
+<a href="http://gcc.gnu.org/onlinedocs/gcc/Gcov.html">GCC's coverage testing tool gcov</a>.
+-# <a href="http://ltp.sourceforge.net/coverage/lcov.php" >LCOV</a> is used to build HTML reports from
+<a href="http://gcc.gnu.org/onlinedocs/gcc/Gcov.html">GCC's coverage testing tool gcov</a>.
+
+<h3>DiceGame: <a href="test/coverage/test/index.html">View Code Coverage Reports</a></h3>
+
+*/

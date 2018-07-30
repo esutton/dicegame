@@ -1,0 +1,254 @@
+/******************************************************************************
+ *
+ *
+ */
+
+/*! \mainpage Loaded Dice Program Using TDD
+
+Introduction
+============
+- Simulates the rolling of two 6-sided die or dice.  
+- Each die may be loaded so that one side comes up more frequently than the others.  
+- A  die configuration is loaded from a configuration file
+
+
+Requirements:
+-------------
+
+1.  Open a configuration file and read key, values pairs (i.e. key=value).  The keys will be:
+    + NumRolls - number of rolls to execute for both dice
+    + Dice - the die identifier Die1 or Die2 to configure followed by LoadedSide and LoadAmount
+    + LoadedSide - the side of a die to load 
+    + LoadAmount - the factor the loaded side should be favored over an unloaded side.
+2.  Execute each throw of the dice and print out each die's result.
+3.  Summarize the results of each dice and the percentages that each side came up.
+
+Configuration File
+------------------
+See \ref pageConfigurationFile
+
+Playing the Game
+================
+When dice game is executed it will display the results of each dice for every throw,
+\code
+Throw 1: Die1 rolled a 3, Die2 rolled a 6
+Throw 2: Die1 rolled a 2, Die2 rolled a 2
+Throw 3: Die1 rolled a 3, Die2 rolled a 6
+Throw 4: Die1 rolled a 1, Die2 rolled a 6
+Throw 5: Die1 rolled a 6, Die2 rolled a 6
+.
+.
+\endcode
+
+After all rolls have completed the dice game will display statistics for each side of each die will be displayed. 
+\code
+Die1 Statistics for 100 rolls:
+Side 1: 13%
+Side 2: 15%
+Side 3: 30%
+Side 4: 14%
+Side 5: 16%
+Side 6: 12%
+
+Die2 Statistics for 100 rolls:
+Side 1: 8%
+Side 2: 6%
+Side 3: 6%
+Side 4: 7%
+Side 5: 9%
+Side 6: 64%
+\endcode
+
+
+<hr>
+
+Unit Tests
+==========
+- A copy of the test framework  cpputest source code is include in the archive
+- See \ref pageTest
+
+<hr>
+Binaries
+========
+- Pre-built Linux executables are found at:
+  - /dicegame/dicegame_main/dicegame      <- The dice game executable
+  - /dicegame/dicegame_test/dicegame_test <- The dice game tests
+  - Pre-built executables will run on RHEL 5.2 g++ (GCC) 4.1.2 and Ubuntu 10.04 LTS g++ 4.4.4 
+
+Code Coverage
+=============
+See \ref pageCodeCoverage
+  
+Running Programs
+================
+
+To Execute Dice Game Executable
+-------------------------------
+Open a terminal and:
+\code
+cd /dicegame/dicegame_main 
+./dicegame dicegame.config
+
+Throw   1: Die1 rolled a 3, Die2 rolled a 6
+...
+...
+...  
+Throw 100: Die1 rolled a 6, Die2 rolled a 5
+
+Die1 Statistics for 100 rolls:
+Side 1: 12.0%
+Side 2: 13.0%
+Side 3: 34.0%
+Side 4: 17.0%
+Side 5: 14.0%
+Side 6: 10.0%
+
+Die2 Statistics for 100 rolls:
+Side 1:  5.0%
+Side 2: 10.0%
+Side 3:  3.0%
+Side 4:  7.0%
+Side 5:  5.0%
+Side 6: 70.0%
+\endcode
+
+To Execute Dice Game Tests
+--------------------------
+Open a terminal and:
+\code
+cd /dicegame/dicegame_test
+./dicegame_test
+# Last line displayed should be similar to this:
+OK (14 tests, 14 ran, 2640077 checks, 0 ignored, 0 filtered out, 898 ms)
+\endcode
+
+To make CppUTest output XML xUnit/jUnit style, add the following command:
+\code
+./dicegame_test -ojunit
+\endcode
+This will output an XML report for each test group executed.
+
+Example xUnit output:
+\code
+<testsuite errors="0" failures="0" hostname="localhost" name="LoadedDie" tests="2" time="2.780" timestamp="2013-12-11T09:44:06">
+        <properties></properties>
+        <testcase classname="LoadedDie" name="RollDistributionIsReasonable" time="0.158"></testcase>
+        <testcase classname="LoadedDie" name="ReturnsValueProvidedAtConstruction" time="2.622"></testcase>
+        <system-out/>
+        <system-err/>
+</testsuite>
+\endcode
+
+Build Environment
+=================
+- Qt 4.6 - a cross-platform C++ application and UI framework
+  - Note:
+    - Qt's qmake is being used to generate the target makefile.
+    - While no Qt libs are used, there is a makefile dependency on Qt config files.
+- Qt Creator is the supporting Qt IDE.
+- g++ (GCC) 4.1.2 or better
+- <a href="http://gcc.gnu.org/onlinedocs/gcc/Gcov.html">GCC's coverage testing tool gcov</a>
+- <a href="http://ltp.sourceforge.net/coverage/lcov.php" >LCOV</a> builds HTML reports from <a href="http://gcc.gnu.org/onlinedocs/gcc/Gcov.html">gcov</a> which are merged with Doxygen
+- doxygen for building HTML documentation from comments in source code
+  - GraphViz used by doxygen to create class diagrams and call graphs
+
+Compiler Flags
+--------------
+- All warnings are enabled using -Wall
+- <b>Many</b> additional warning flags are enabled (see Makefile ).
+- All warnings are treated as errors using "-Werror". Otherwise warnings are useless as they do not demand to be fixed.
+  
+Project Directory Structure
+----------------------------
+\code
+dicegame
+|
+├── build.sh                     <- Build script that calls all subdirectory build scripts.
+├── read-me.html                 <- Redirect link to open Doxygen output and view this HTML document
+├── cpputest                     <- Configure and make CppUTest if needed
+│   ├── include
+│   │   ├── CppUTest
+│   │   ├── CppUTestExt
+│   │   └── Platforms
+│   │       ├── Gcc
+│   │       ├── StarterKit
+│   │       ├── Symbian
+│   │       ├── VisualCpp
+│   │       └── c2000
+│   ├── lib
+|
+├── dicegame
+│   ├── doc           		<- Dice game doxygen project
+|   |   └── html      		
+│   │      ├── index.html	<- Dice game doxygen output
+│   │      └── test
+|   |          └── coverage     <- lcov code coverage reports
+│   └── src
+│       ├── main      		<- Dice game source code
+│       └── test      		<- Dice game tests
+├── dicegame_main
+|   ├── build.sh                <- Build script for dicegame
+|   ├── dicegame                <- Pre-built Linux executable for dice game
+|   ├── dicegame.config         <- Example dicegame configuration file
+|   ├── dicegame.pro            <- Qt Creator project file
+|   ├── makefile                <- Make file for dicegame (make clean; make; ./dicegame dicegame.config)
+│   └── src
+│       └── main
+└── dicegame_test
+    ├── build.sh                <- Build script for dicegame_test
+    ├── dicegame_test 	        <- Pre-built Linux executable for dice game tests
+    ├── dicegame.config	        <- Example dicegame configuration file used by dicegame_test
+    ├── dicegame_test.pro       <- Qt Creator project file
+    ├── makefile                <- Make file for dicegame_test (make clean; make; ./dicegame_test)
+    └── src
+        ├── main
+        └── test
+\endcode
+
+Building All
+------------
+Open a terminal and:
+\code
+cd /dicegame
+./build.sh
+\endcode
+
+
+Building: CppUTest
+------------------
+If you need to rebuild cpputest for your target:
+Open a terminal and:
+\code
+cd /dicegame/cpputest
+./configure
+make 
+\endcode
+
+Building: Unit Tests
+--------------------
+Open a terminal and:
+\code
+cd /dicegame/dicegame_test 
+make clean
+make
+\endcode
+
+Building: Dice Game
+-------------------
+Open a terminal and:
+\code
+cd /dicegame/dicegame_main 
+make clean
+make
+\endcode
+
+<hr>
+\section systemRequirements System Requirements
+The dicegame, dicegame_test, and cpputest projects is expected to run and compile on any gcc/g++ development environment.
+
+ - Tested on:
+ 	- OS X 10.7.5, g++  4.21
+ 	- RHEL 5.2 g++ (GCC) 4.1.2
+ 	- Ubuntu 10.04 LTS g++ 4.4.4  
+ 
+*/

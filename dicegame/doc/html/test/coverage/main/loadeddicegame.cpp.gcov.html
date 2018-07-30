@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - main/loadeddicegame.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">main</a> - loadeddicegame.cpp<span style="font-size: 80%;"> (source / <a href="loadeddicegame.cpp.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">33</td>
+            <td class="headerCovTableEntry">35</td>
+            <td class="headerCovTableEntryHi">94.3 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2013-12-14</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryMed">80.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : #include &lt;iostream&gt;</a>
+<span class="lineNum">       2 </span>            : 
+<span class="lineNum">       3 </span>            : 
+<span class="lineNum">       4 </span>            : #include &quot;loadeddicegame.hpp&quot;
+<span class="lineNum">       5 </span>            : #include &quot;loadeddie.hpp&quot;
+<span class="lineNum">       6 </span>            : #include &quot;loaddicegameconfiguration.hpp&quot;
+<span class="lineNum">       7 </span>            : 
+<span class="lineNum">       8 </span>            : using namespace std;
+<span class="lineNum">       9 </span>            : using namespace dicegame;
+<span class="lineNum">      10 </span>            : 
+<span class="lineNum">      11 </span>            : /// \class dicegame::LoadedDiceGame
+<span class="lineNum">      12 </span>            : /// \brief Plays a loaded dice game specified in a configuration file.
+<span class="lineNum">      13 </span>            : ///
+<span class="lineNum">      14 </span>            : /// The DiceGame:
+<span class="lineNum">      15 </span>            : /// - A collection of one or more die
+<span class="lineNum">      16 </span>            : /// - Plays the gane by rolling all die in the game
+<a name="17"><span class="lineNum">      17 </span>            : </a>
+<span class="lineNum">      18 </span>            : 
+<span class="lineNum">      19 </span><span class="lineCov">          3 : LoadedDiceGame::LoadedDiceGame()</span>
+<span class="lineNum">      20 </span>            : {
+<span class="lineNum">      21 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : /// Plays a loaded dice game using specified configuration file
+<a name="24"><span class="lineNum">      24 </span>            : ///</a>
+<span class="lineNum">      25 </span>            : /// \returns 0 if game configuration is successfully loaded and game played
+<span class="lineNum">      26 </span><span class="lineCov">          3 : int LoadedDiceGame::play(string&amp; pathToConfigurationFile)</span>
+<span class="lineNum">      27 </span>            : {
+<span class="lineNum">      28 </span><span class="lineCov">          3 :     if(false == LoadDiceGameConfiguration::fileExists(pathToConfigurationFile))</span>
+<span class="lineNum">      29 </span>            :     {
+<span class="lineNum">      30 </span><span class="lineCov">          1 :         cerr &lt;&lt; &quot;*** Error file not found: &quot; &lt;&lt; pathToConfigurationFile &lt;&lt; endl;</span>
+<span class="lineNum">      31 </span><span class="lineCov">          1 :         return 1;</span>
+<span class="lineNum">      32 </span>            :     }
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span><span class="lineCov">          2 :     LoadDiceGameConfiguration diceGameConfiguration;</span>
+<span class="lineNum">      35 </span><span class="lineCov">          2 :     diceGameConfiguration.open(pathToConfigurationFile);</span>
+<span class="lineNum">      36 </span><span class="lineCov">          2 :     if(false == diceGameConfiguration.isValid())</span>
+<span class="lineNum">      37 </span>            :     {
+<span class="lineNum">      38 </span><span class="lineNoCov">          0 :         cerr &lt;&lt; &quot;*** Error game configuration is not valid\n&quot;;</span>
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 :         cerr &lt;&lt; &quot;File: &quot; &lt;&lt; pathToConfigurationFile &lt;&lt; endl;</span>
+<span class="lineNum">      40 </span><span class="lineCov">          2 :         return 1;</span>
+<span class="lineNum">      41 </span>            :     }
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span>            :     // Create the game from loaded configuration
+<span class="lineNum">      44 </span><span class="lineCov">          2 :     DiceGame diceGame;</span>
+<span class="lineNum">      45 </span><span class="lineCov">          6 :     for(unsigned int die = 0; die &lt; diceGameConfiguration.dieConfigurationCollection().size(); ++die)</span>
+<span class="lineNum">      46 </span>            :     {
+<span class="lineNum">      47 </span><span class="lineCov">          4 :         int loadedSide = diceGameConfiguration.dieConfigurationCollection()[die].loadedSide;</span>
+<span class="lineNum">      48 </span><span class="lineCov">          4 :         int loadAmount = diceGameConfiguration.dieConfigurationCollection()[die].loadAmount;</span>
+<span class="lineNum">      49 </span><span class="lineCov">          4 :         diceGame.addDie(new LoadedDie(loadedSide, loadAmount));</span>
+<span class="lineNum">      50 </span>            :     }
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            :     // Play the game displaying status after each throw
+<span class="lineNum">      53 </span><span class="lineCov">          2 :     printf(&quot;\n&quot;);</span>
+<span class="lineNum">      54 </span><span class="lineCov">        202 :     for(int roll = 0; roll &lt; diceGameConfiguration.numberOfRolls(); ++roll )</span>
+<span class="lineNum">      55 </span>            :     {
+<span class="lineNum">      56 </span><span class="lineCov">        200 :         diceGame.play();</span>
+<span class="lineNum">      57 </span><span class="lineCov">        200 :         printf(&quot;Throw %3i: &quot;,roll+1);</span>
+<span class="lineNum">      58 </span><span class="lineCov">        600 :         for( unsigned int die = 0; die &lt; diceGame.dieCollection().size(); ++die)</span>
+<span class="lineNum">      59 </span>            :         {
+<span class="lineNum">      60 </span>            :             // add separator
+<span class="lineNum">      61 </span><span class="lineCov">        400 :             if( 0 &lt; die)</span>
+<span class="lineNum">      62 </span>            :             {
+<span class="lineNum">      63 </span><span class="lineCov">        200 :                 printf(&quot;, &quot;);</span>
+<span class="lineNum">      64 </span>            :             }
+<span class="lineNum">      65 </span><span class="lineCov">        400 :             printf(&quot;Die%d rolled a %d&quot;, die+1, diceGame.dieCollection()[die]-&gt;faceValue());</span>
+<span class="lineNum">      66 </span>            :         }
+<span class="lineNum">      67 </span><span class="lineCov">        200 :         printf(&quot;\n&quot;);</span>
+<span class="lineNum">      68 </span>            :     }
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            :     // After game over display the roll distribution statistics for each die
+<span class="lineNum">      71 </span><span class="lineCov">          2 :     const DiceGame::dieCollection_t dieCollection = diceGame.dieCollection();</span>
+<span class="lineNum">      72 </span><span class="lineCov">          6 :     for(unsigned int dieIndex = 0; dieIndex &lt; dieCollection.size(); ++dieIndex)</span>
+<span class="lineNum">      73 </span>            :     {
+<span class="lineNum">      74 </span><span class="lineCov">          4 :         printf(&quot;\nDie%i Statistics for %i rolls:\n&quot;, dieIndex+1, diceGameConfiguration.numberOfRolls());</span>
+<span class="lineNum">      75 </span><span class="lineCov">         28 :         for(int dieSide = 1; dieSide &lt;= 6; ++dieSide)</span>
+<span class="lineNum">      76 </span>            :         {
+<span class="lineNum">      77 </span>            :             printf(&quot;Side %i: %4.1f%%\n&quot;,
+<span class="lineNum">      78 </span><span class="lineCov">         24 :                    dieSide, (100.0f * dieCollection[dieIndex]-&gt;rollCountHistory(dieSide))/(float)diceGameConfiguration.numberOfRolls());</span>
+<span class="lineNum">      79 </span>            :         }
+<span class="lineNum">      80 </span>            :     }
+<span class="lineNum">      81 </span><span class="lineCov">          2 :     printf(&quot;\n&quot;);</span>
+<span class="lineNum">      82 </span>            : 
+<a name="83"><span class="lineNum">      83 </span>            :     // Success!</a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          2 :     return 0;</span></a>
+<span class="lineNum">      85 </span><span class="lineCov">          2 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
